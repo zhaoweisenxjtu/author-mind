@@ -4,10 +4,10 @@
   ~/.astromind-praxis/vec_index/
     atoms/
       <author_name>/
-        embeddings.npy     # float32 matrix (N, 1024)
+        embeddings.npy     # float32 matrix (N, D); dims auto-detected
         records.jsonl      # {id, atom_id, content_summary} per line
 
-使用 aliyun text-embedding-v3 或兼容的 OpenAI API 生成 1024 维向量.
+使用 aliyun text-embedding-v3 (1024维) 或 OpenAI text-embedding-3-small (1536维). 维度自动检测.
 """
 
 import json

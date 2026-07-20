@@ -129,8 +129,9 @@ def run_dedup(author_name: str):
                         matched_id = similar[0]["atom_id"]
                 except Exception as e:
                     print(f"  [!] LLM 去重判定失败: {e}")
-                    # Fall back to threshold-only
+                    # Fall back to threshold-only (⚠ 向量相似度≠知识等价性, 可能误判)
                     if similar[0]["similarity"] > 0.95:
+                        print(f"  [W] 仅凭向量相似度 {similar[0]['similarity']:.3f} 判定重复, 请人工复核")
                         is_duplicate = True
                         matched_id = similar[0]["atom_id"]
 

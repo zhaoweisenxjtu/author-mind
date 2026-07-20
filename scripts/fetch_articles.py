@@ -279,6 +279,7 @@ def datetime_now_str() -> str:
 
 
 def main():
+    global REQUEST_INTERVAL
     parser = argparse.ArgumentParser(description="获取公众号合集文章列表")
     parser.add_argument("url", nargs="?", help="公众号合集 URL")
     parser.add_argument("--url", dest="album_url", help="公众号合集 URL (具名参数)")
@@ -298,7 +299,6 @@ def main():
         sys.exit(1)
 
     # Override interval
-    global REQUEST_INTERVAL
     REQUEST_INTERVAL = args.interval
 
     biz, album_id, _ = parse_album_url(album_url)

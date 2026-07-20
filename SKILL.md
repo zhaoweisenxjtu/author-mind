@@ -13,9 +13,17 @@ trigger:
   - /author status [作者名] # 查看进度
 dependencies:
   python: ">=3.10"
-  packages: [openai, httpx]
+  packages: [openai, httpx, numpy, pyyaml]
   external: astromind-praxis (>=0.1.2)
   database: ~/.astromind-praxis/astromind_praxis.db
+note: |
+  脚本必须从 scripts/ 目录内运行（模块使用裸导入）:
+    cd D:\workdata\shared\skills\author-mind\scripts
+    python extract.py --author "作者名"
+  or set PYTHONPATH:
+    PYTHONPATH=scripts python -c "from extract import ..."
+  v6.1 表（articles/knowledge_atoms/mental_models/author_profiles）
+  在首次连接时自动创建，无需手动迁移。
 ---
 
 # 作者心智提炼系统 (author-mind)

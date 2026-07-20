@@ -130,6 +130,10 @@ L4_SCHEMA = {
 }
 
 # ── Quality validation ──
+# NOTE: Two separate scoring layers exist:
+#   1. validate_mirror() → "faithful" check (L4 镜像是否忠实于 persona)
+#   2. _validate_writing() in astromind workflow.py → expression/cognition/honesty (L4 生成的仿写文章质量)
+# Layer 1 检查镜像本身, Layer 2 检查镜像输出. 两者互补, 不冲突.
 
 VALIDATE_SYSTEM = """你是写作质量评估器。评估一篇仿写文章是否成功模仿了目标作者的风格和思维方式。
 从以下三个维度评分（各 1-5 分），不评判内容好坏，只评判模仿准确性。"""

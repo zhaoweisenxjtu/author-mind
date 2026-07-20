@@ -414,6 +414,7 @@ def run_merge(author_name: str, topic_filter: str = None):
         l2_model_count=dao_model.count_models(author_name),
         atom_count=dao_atom.count_atoms(author_name),
     )
+    # 记录归并时间戳 (L3/L4 标志由各自的 extract_l3/extract_l4 设置)
     dao_author.set_distilled(author_name)
 
     print(f"\n归并完成: 新增 {new_models} 个心智模型")

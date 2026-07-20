@@ -177,7 +177,10 @@ def store_atoms(article: dict, result: dict):
         for item in items:
             if atom_type == "styles":
                 content = item.get("sentence", "")
-                evidence = None
+                evidence = json.dumps({
+                    "pattern": item.get("pattern", ""),
+                    "usage": item.get("usage", ""),
+                })
             else:
                 content = item.get("content", "")
                 evidence = item.get("supporting_clues") or item.get("counter_evidence") or None
